@@ -172,12 +172,6 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => const AppointmentCheckInPage(),
-            //   ),
-            // );
             // Push replacement
             context.pushTransition(
               type: PageTransitionType.rightToLeft,
@@ -200,13 +194,6 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     //builder: (context) => const SearchPatientPage(),
-            //     builder: (context) => const FindPatientPage(),
-            //   ),
-            // );
             ////Using Extensions (Recommended) Pattern of PageTransition package
             context.pushTransition(
               type: PageTransitionType.rightToLeft,
@@ -217,33 +204,6 @@ class WelcomePage extends StatelessWidget {
           child: Text("Repeat Patient", style: TextStyle(color: Colors.white)),
         ),
       ),
-
-      // const SizedBox(width: 20, height: 20),
-      // SizedBox(
-      //   width: width,
-      //   child: ElevatedButton(
-      //     style: ElevatedButton.styleFrom(
-      //       backgroundColor: Colors.blue,
-      //       padding: const EdgeInsets.symmetric(vertical: 16),
-      //       shape: RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.circular(12),
-      //       ),
-      //     ),
-      //     onPressed: () {
-      //       Navigator.push(
-      //         context,
-      //         MaterialPageRoute(
-      //           builder: (context) =>
-      //               const CheckInConfirmationPage(appointmentNo: 'FH000019'),
-      //         ),
-      //       );
-      //     },
-      //     child: Text(
-      //       "CheckIn Confirmation",
-      //       style: TextStyle(color: Colors.white),
-      //     ),
-      //   ),
-      // ),
     ];
   }
 }

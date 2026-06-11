@@ -57,7 +57,6 @@ class AppointmentProvider with ChangeNotifier {
     try {
       _isLoading = true;
       notifyListeners();
-      // await Future.delayed(const Duration(seconds: 2));
       patientInfo = await HealthcareDataServiceApi().findPatient(dob, lastName);
     } catch (e) {
       _isLoading = false;

@@ -132,15 +132,6 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
       if (!context.mounted) return;
       if (apiResponse.success) {
         if (!mounted) return;
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => CheckInConfirmationPage(
-        //       appointmentNo: apiResponse.appointmentNo!,
-        //     ),
-        //   ),
-        // );
-
         //// Traditional Usage Pattern of PageTransition package
         Navigator.push(
           context,
@@ -554,22 +545,12 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
     return TextFormField(
       controller: _postCodeController,
       keyboardType: TextInputType.text,
-      // inputFormatters: <TextInputFormatter>[
-      //   //FilteringTextInputFormatter.digitsOnly, // Restricts input to digits 0-9
-      //   LengthLimitingTextInputFormatter(4),
-      // ],
       decoration: const InputDecoration(
         labelText: 'Post Code',
         prefixIcon: Icon(Icons.account_balance_outlined),
         hintText: 'Enter post code',
         border: OutlineInputBorder(),
       ),
-      // validator: (value) {
-      //   if (value != null && value.isNotEmpty && value.length < 4) {
-      //     return 'Postcode must be 4 characters';
-      //   }
-      //   return null;
-      // },
     );
   }
 
