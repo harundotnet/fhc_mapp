@@ -1,4 +1,4 @@
-package com.example.fusion_healthcare
+package com.uysl.fusion_healthcare
 
 import io.flutter.embedding.android.FlutterActivity
 

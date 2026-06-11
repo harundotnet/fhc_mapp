@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fusion_healthcare/core/api_constant.dart';
+import 'package:fusion_healthcare/core/secure_dio.dart';
 import 'package:fusion_healthcare/dtos/patient.dart';
 import 'package:fusion_healthcare/dtos/appointment_response.dart';
 import 'package:fusion_healthcare/models/patient_appointment.dart';
@@ -7,8 +8,8 @@ import 'package:fusion_healthcare/models/patient_appointment.dart';
 class HealthcareDataServiceApi {
   Future<List<TestDetails>> getTestAll() async {
     List<TestDetails> dataList = [];
-    // final dio = await SecureDio.create();
-    final dio = Dio();
+    final dio = await SecureDio.create();
+    //final dio = Dio();
     final apiUrl = '${ApiConstant.baseUrl}/api/Test/GetAll';
     final response = await dio.get(apiUrl);
     // // Extract the data array from response
@@ -24,8 +25,8 @@ class HealthcareDataServiceApi {
   }
 
   Future<Patient?> findPatient(String dob, String lastName) async {
-    // final dio = await SecureDio.create();
-    final dio = Dio();
+    final dio = await SecureDio.create();
+    //final dio = Dio();
     final apiUrl = '${ApiConstant.baseUrl}/api/HealthcarePatient/FindPatient';
     final response = await dio.get(
       apiUrl,
@@ -45,8 +46,8 @@ class HealthcareDataServiceApi {
     try {
       final apiUrl = "${ApiConstant.baseUrl}/api/Appointment/CreateAppointment";
       var requestBody = patient.toJson();
-
-      final dio = Dio();
+      final dio = await SecureDio.create();
+      // final dio = Dio();
       var headers = {'Content-Type': 'application/json'};
       var response = await dio.request(
         apiUrl,

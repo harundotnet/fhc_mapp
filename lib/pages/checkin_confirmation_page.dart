@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fusion_healthcare/core/key_constant.dart';
 
 class CheckInConfirmationPage extends StatelessWidget {
   final String appointmentNo;
@@ -254,46 +255,16 @@ class CheckInConfirmationPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 50,
-        alignment: Alignment.center,
-        child: Text(
-          "© ${DateTime.now().year} FusionHealthCare, All Rights Reserved",
-          style: TextStyle(fontSize: 12),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          height: 50,
+          alignment: Alignment.center,
+          child: Text(
+            KeyConstant.copyRightInfo,
+            style: TextStyle(fontSize: 12),
+          ),
         ),
       ),
     );
   }
-
-  // Widget _buildBottomNavigationBar(BuildContext context) {
-  //   return BottomNavigationBar(
-  //     backgroundColor: Colors.white,
-  //     selectedItemColor: Colors.blue,
-  //     unselectedItemColor: Colors.grey[600],
-  //     currentIndex: 0, // Confirmation page
-  //     items: const [
-  //       BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-  //       BottomNavigationBarItem(icon: Icon(Icons.add), label: 'New Patient'),
-  //       BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Old Patient'),
-  //     ],
-  //     //onTap: (index) => _onNavigationTap(context, index),
-  //   );
-  // }
-
-  // void _onNavigationTap(BuildContext context, int index) {
-  //   switch (index) {
-  //     case 0:
-  //       Navigator.pushNamed(context, '/'); //WelcomePage
-  //       break;
-  //     case 1:
-  //       Navigator.pushNamed(context, '/new-patient'); // AppointmentCheckInPage
-  //       break;
-  //     case 2:
-  //       Navigator.pushNamed(context, '/old-patient'); // FindPatientPage
-  //       break;
-  //     default:
-  //       Navigator.pushNamed(context, '/'); //WelcomePage
-  //       break;
-  //   }
-  // }
 }

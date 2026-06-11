@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fusion_healthcare/core/key_constant.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:fusion_healthcare/pages/appointment_checkin_page.dart';
 import 'package:fusion_healthcare/pages/find_patient_page.dart';
@@ -147,7 +148,7 @@ class WelcomePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(bottom: padding),
               child: Text(
-                "© ${DateTime.now().year} FusionHealthCare, All Rights Reserved",
+                KeyConstant.copyRightInfo,
                 style: TextStyle(fontSize: 12, color: Colors.black),
               ),
             ),

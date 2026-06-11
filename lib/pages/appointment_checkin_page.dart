@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fusion_healthcare/core/key_constant.dart';
 import 'package:fusion_healthcare/dtos/patient.dart';
 import 'package:fusion_healthcare/dtos/appointment_response.dart';
 import 'package:fusion_healthcare/models/patient_appointment.dart';
@@ -64,6 +65,7 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
+      locale: const Locale('en', 'GB'),
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
@@ -401,8 +403,8 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
                 // Footer
                 Center(
                   child: Text(
-                    '© ${DateTime.now().year} FusionHealthCare, All Rights Reserved',
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                    KeyConstant.copyRightInfo,
+                    style: TextStyle(fontSize: 12),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -418,7 +420,7 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
     return TextFormField(
       controller: _firstNameController,
       decoration: const InputDecoration(
-        labelText: 'First Name',
+        labelText: 'First Name*',
         prefixIcon: Icon(Icons.person_outline),
         hintText: 'Enter first name',
         border: OutlineInputBorder(),
@@ -436,7 +438,7 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
     return TextFormField(
       controller: _lastNameController,
       decoration: const InputDecoration(
-        labelText: 'Last Name',
+        labelText: 'Last Name*',
         prefixIcon: Icon(Icons.person_outline),
         hintText: 'Enter last name',
         border: OutlineInputBorder(),
@@ -455,7 +457,7 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
       onTap: () => _selectDate(context),
       child: InputDecorator(
         decoration: const InputDecoration(
-          labelText: 'Date of Birth',
+          labelText: 'Date of Birth*',
           prefixIcon: Icon(Icons.cake_outlined),
           border: OutlineInputBorder(),
         ),
@@ -488,7 +490,7 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
             runSpacing: 5,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              const Text("Gender:"),
+              const Text("Gender*:"),
 
               Row(
                 mainAxisSize: MainAxisSize.min,
@@ -575,9 +577,9 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
     return TextFormField(
       controller: _emailController,
       decoration: const InputDecoration(
-        labelText: 'Email',
+        labelText: 'Email*',
         prefixIcon: Icon(Icons.email_outlined),
-        hintText: 'patient@example.com',
+        hintText: 'mail@example.com',
         border: OutlineInputBorder(),
       ),
       keyboardType: TextInputType.emailAddress,
@@ -597,7 +599,7 @@ class _AppointmentCheckInPageState extends State<AppointmentCheckInPage> {
     return TextFormField(
       controller: _phoneController,
       decoration: const InputDecoration(
-        labelText: 'Phone Number',
+        labelText: 'Phone Number*',
         prefixIcon: Icon(Icons.phone_outlined),
         hintText: '(555) 123-4567',
         border: OutlineInputBorder(),

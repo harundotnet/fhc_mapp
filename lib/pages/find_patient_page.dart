@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fusion_healthcare/core/key_constant.dart';
 import 'package:fusion_healthcare/pages/appointment_checkin_page.dart';
 import 'package:fusion_healthcare/providers/appointment_provider.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,9 @@ class _FindPatientPageState extends State<FindPatientPage> {
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
+      // Enforce British English format: DD/MM/YYYY
+      locale: const Locale('en', 'GB'),
+      // initialEntryMode: DatePickerEntryMode.input,
     );
 
     if (picked != null) {
@@ -257,12 +261,14 @@ class _FindPatientPageState extends State<FindPatientPage> {
           },
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 50,
-        alignment: Alignment.center,
-        child: Text(
-          "© ${DateTime.now().year} FusionHealthCare, All Rights Reserved",
-          style: TextStyle(fontSize: 12),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          height: 50,
+          alignment: Alignment.center,
+          child: Text(
+            KeyConstant.copyRightInfo,
+            style: TextStyle(fontSize: 12),
+          ),
         ),
       ),
     );
@@ -272,7 +278,7 @@ class _FindPatientPageState extends State<FindPatientPage> {
     return TextFormField(
       controller: _lastNameController,
       decoration: const InputDecoration(
-        labelText: 'Last Name',
+        labelText: 'Last Name*',
         prefixIcon: Icon(Icons.person_outline),
         hintText: 'Enter last name',
         border: OutlineInputBorder(),
@@ -291,7 +297,7 @@ class _FindPatientPageState extends State<FindPatientPage> {
       onTap: () => _pickDate(),
       child: InputDecorator(
         decoration: const InputDecoration(
-          labelText: 'Date of Birth',
+          labelText: 'Date of Birth*',
           prefixIcon: Icon(Icons.cake_outlined),
           border: OutlineInputBorder(),
         ),
